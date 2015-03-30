@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B7135611AC867F50085559E /* MRTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7135601AC867F50085559E /* MRTestViewController.m */; };
+		5B8120C51AC8EF6D0003DE80 /* MRTableBuilder.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120BD1AC8EF6D0003DE80 /* MRTableBuilder.h */; };
+		5B8120C61AC8EF6D0003DE80 /* MRTableBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120BE1AC8EF6D0003DE80 /* MRTableBuilder.m */; };
+		5B8120C71AC8EF6D0003DE80 /* MRTableHeaderFooter.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120BF1AC8EF6D0003DE80 /* MRTableHeaderFooter.h */; };
+		5B8120C81AC8EF6D0003DE80 /* MRTableHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120C01AC8EF6D0003DE80 /* MRTableHeaderFooter.m */; };
+		5B8120C91AC8EF6D0003DE80 /* MRTableRow.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120C11AC8EF6D0003DE80 /* MRTableRow.h */; };
+		5B8120CA1AC8EF6D0003DE80 /* MRTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120C21AC8EF6D0003DE80 /* MRTableRow.m */; };
+		5B8120CB1AC8EF6D0003DE80 /* MRTableSection.h in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120C31AC8EF6D0003DE80 /* MRTableSection.h */; };
+		5B8120CC1AC8EF6D0003DE80 /* MRTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8120C41AC8EF6D0003DE80 /* MRTableSection.m */; };
+		5B84A72D1AC7446400FBEEBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A72C1AC7446400FBEEBC /* main.m */; };
+		5B84A7301AC7446400FBEEBC /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A72F1AC7446400FBEEBC /* MRAppDelegate.m */; };
+		5B84A7381AC7446400FBEEBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B84A7371AC7446400FBEEBC /* Images.xcassets */; };
+		5B84A73B1AC7446400FBEEBC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B84A7391AC7446400FBEEBC /* LaunchScreen.xib */; };
+		5B84A7471AC7446400FBEEBC /* MRTableBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A7461AC7446400FBEEBC /* MRTableBuilderTests.m */; };
+		5B84A75E1AC74DEB00FBEEBC /* MRSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B84A75D1AC74DEB00FBEEBC /* MRSampleViewController.m */; };
+		5BD8EAA61AC826FE00B6B0E5 /* MRTableBuilderSamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8EAA51AC826FE00B6B0E5 /* MRTableBuilderSamples.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B84A7411AC7446400FBEEBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B84A71F1AC7446400FBEEBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B84A7261AC7446400FBEEBC;
+			remoteInfo = MRTableBuilder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B71355F1AC867F50085559E /* MRTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTestViewController.h; sourceTree = "<group>"; };
+		5B7135601AC867F50085559E /* MRTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTestViewController.m; sourceTree = "<group>"; };
+		5B8120BD1AC8EF6D0003DE80 /* MRTableBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MRTableBuilder.h; path = MRTableBuilder/MRTableBuilder.h; sourceTree = "<group>"; };
+		5B8120BE1AC8EF6D0003DE80 /* MRTableBuilder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MRTableBuilder.m; path = MRTableBuilder/MRTableBuilder.m; sourceTree = "<group>"; };
+		5B8120BF1AC8EF6D0003DE80 /* MRTableHeaderFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MRTableHeaderFooter.h; path = MRTableBuilder/MRTableHeaderFooter.h; sourceTree = "<group>"; };
+		5B8120C01AC8EF6D0003DE80 /* MRTableHeaderFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MRTableHeaderFooter.m; path = MRTableBuilder/MRTableHeaderFooter.m; sourceTree = "<group>"; };
+		5B8120C11AC8EF6D0003DE80 /* MRTableRow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MRTableRow.h; path = MRTableBuilder/MRTableRow.h; sourceTree = "<group>"; };
+		5B8120C21AC8EF6D0003DE80 /* MRTableRow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MRTableRow.m; path = MRTableBuilder/MRTableRow.m; sourceTree = "<group>"; };
+		5B8120C31AC8EF6D0003DE80 /* MRTableSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MRTableSection.h; path = MRTableBuilder/MRTableSection.h; sourceTree = "<group>"; };
+		5B8120C41AC8EF6D0003DE80 /* MRTableSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MRTableSection.m; path = MRTableBuilder/MRTableSection.m; sourceTree = "<group>"; };
+		5B84A7271AC7446400FBEEBC /* MRTableBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRTableBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B84A72B1AC7446400FBEEBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B84A72C1AC7446400FBEEBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B84A72E1AC7446400FBEEBC /* MRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
+		5B84A72F1AC7446400FBEEBC /* MRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
+		5B84A7371AC7446400FBEEBC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5B84A73A1AC7446400FBEEBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5B84A7401AC7446400FBEEBC /* MRTableBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MRTableBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B84A7451AC7446400FBEEBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B84A7461AC7446400FBEEBC /* MRTableBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRTableBuilderTests.m; sourceTree = "<group>"; };
+		5B84A75C1AC74DEB00FBEEBC /* MRSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSampleViewController.h; sourceTree = "<group>"; };
+		5B84A75D1AC74DEB00FBEEBC /* MRSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSampleViewController.m; sourceTree = "<group>"; };
+		5BD8EAA41AC826FE00B6B0E5 /* MRTableBuilderSamples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTableBuilderSamples.h; sourceTree = "<group>"; };
+		5BD8EAA51AC826FE00B6B0E5 /* MRTableBuilderSamples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTableBuilderSamples.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B84A7241AC7446400FBEEBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B84A73D1AC7446400FBEEBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B8120CD1AC8EFC30003DE80 /* MRTableBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5B8120BD1AC8EF6D0003DE80 /* MRTableBuilder.h */,
+				5B8120BE1AC8EF6D0003DE80 /* MRTableBuilder.m */,
+				5B8120BF1AC8EF6D0003DE80 /* MRTableHeaderFooter.h */,
+				5B8120C01AC8EF6D0003DE80 /* MRTableHeaderFooter.m */,
+				5B8120C11AC8EF6D0003DE80 /* MRTableRow.h */,
+				5B8120C21AC8EF6D0003DE80 /* MRTableRow.m */,
+				5B8120C31AC8EF6D0003DE80 /* MRTableSection.h */,
+				5B8120C41AC8EF6D0003DE80 /* MRTableSection.m */,
+			);
+			name = MRTableBuilder;
+			sourceTree = "<group>";
+		};
+		5B84A71E1AC7446400FBEEBC = {
+			isa = PBXGroup;
+			children = (
+				5B84A7291AC7446400FBEEBC /* MRTableBuilder */,
+				5B84A7431AC7446400FBEEBC /* MRTableBuilderTests */,
+				5B84A7281AC7446400FBEEBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B84A7281AC7446400FBEEBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B84A7271AC7446400FBEEBC /* MRTableBuilder.app */,
+				5B84A7401AC7446400FBEEBC /* MRTableBuilderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B84A7291AC7446400FBEEBC /* MRTableBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5B8120CD1AC8EFC30003DE80 /* MRTableBuilder */,
+				5B84A72E1AC7446400FBEEBC /* MRAppDelegate.h */,
+				5B84A72F1AC7446400FBEEBC /* MRAppDelegate.m */,
+				5B84A75C1AC74DEB00FBEEBC /* MRSampleViewController.h */,
+				5B84A75D1AC74DEB00FBEEBC /* MRSampleViewController.m */,
+				5B71355F1AC867F50085559E /* MRTestViewController.h */,
+				5B7135601AC867F50085559E /* MRTestViewController.m */,
+				5BD8EAA41AC826FE00B6B0E5 /* MRTableBuilderSamples.h */,
+				5BD8EAA51AC826FE00B6B0E5 /* MRTableBuilderSamples.m */,
+				5B84A7371AC7446400FBEEBC /* Images.xcassets */,
+				5B84A7391AC7446400FBEEBC /* LaunchScreen.xib */,
+				5B84A72A1AC7446400FBEEBC /* Supporting Files */,
+			);
+			path = MRTableBuilder;
+			sourceTree = "<group>";
+		};
+		5B84A72A1AC7446400FBEEBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B84A72B1AC7446400FBEEBC /* Info.plist */,
+				5B84A72C1AC7446400FBEEBC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B84A7431AC7446400FBEEBC /* MRTableBuilderTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B84A7461AC7446400FBEEBC /* MRTableBuilderTests.m */,
+				5B84A7441AC7446400FBEEBC /* Supporting Files */,
+			);
+			path = MRTableBuilderTests;
+			sourceTree = "<group>";
+		};
+		5B84A7441AC7446400FBEEBC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B84A7451AC7446400FBEEBC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B84A7261AC7446400FBEEBC /* MRTableBuilder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B84A74A1AC7446400FBEEBC /* Build configuration list for PBXNativeTarget "MRTableBuilder" */;
+			buildPhases = (
+				5B84A7231AC7446400FBEEBC /* Sources */,
+				5B84A7241AC7446400FBEEBC /* Frameworks */,
+				5B84A7251AC7446400FBEEBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MRTableBuilder;
+			productName = MRTableBuilder;
+			productReference = 5B84A7271AC7446400FBEEBC /* MRTableBuilder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B84A73F1AC7446400FBEEBC /* MRTableBuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B84A74D1AC7446400FBEEBC /* Build configuration list for PBXNativeTarget "MRTableBuilderTests" */;
+			buildPhases = (
+				5B84A73C1AC7446400FBEEBC /* Sources */,
+				5B84A73D1AC7446400FBEEBC /* Frameworks */,
+				5B84A73E1AC7446400FBEEBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B84A7421AC7446400FBEEBC /* PBXTargetDependency */,
+			);
+			name = MRTableBuilderTests;
+			productName = MRTableBuilderTests;
+			productReference = 5B84A7401AC7446400FBEEBC /* MRTableBuilderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B84A71F1AC7446400FBEEBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Martin Rybak";
+				TargetAttributes = {
+					5B84A7261AC7446400FBEEBC = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					5B84A73F1AC7446400FBEEBC = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 5B84A7261AC7446400FBEEBC;
+					};
+				};
+			};
+			buildConfigurationList = 5B84A7221AC7446400FBEEBC /* Build configuration list for PBXProject "MRTableBuilder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B84A71E1AC7446400FBEEBC;
+			productRefGroup = 5B84A7281AC7446400FBEEBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B84A7261AC7446400FBEEBC /* MRTableBuilder */,
+				5B84A73F1AC7446400FBEEBC /* MRTableBuilderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B84A7251AC7446400FBEEBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B84A73B1AC7446400FBEEBC /* LaunchScreen.xib in Resources */,
+				5B84A7381AC7446400FBEEBC /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B84A73E1AC7446400FBEEBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B84A7231AC7446400FBEEBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B8120C51AC8EF6D0003DE80 /* MRTableBuilder.h in Sources */,
+				5B8120C61AC8EF6D0003DE80 /* MRTableBuilder.m in Sources */,
+				5B8120C71AC8EF6D0003DE80 /* MRTableHeaderFooter.h in Sources */,
+				5B8120C81AC8EF6D0003DE80 /* MRTableHeaderFooter.m in Sources */,
+				5B8120C91AC8EF6D0003DE80 /* MRTableRow.h in Sources */,
+				5B8120CA1AC8EF6D0003DE80 /* MRTableRow.m in Sources */,
+				5B8120CB1AC8EF6D0003DE80 /* MRTableSection.h in Sources */,
+				5B8120CC1AC8EF6D0003DE80 /* MRTableSection.m in Sources */,
+				5B84A7301AC7446400FBEEBC /* MRAppDelegate.m in Sources */,
+				5BD8EAA61AC826FE00B6B0E5 /* MRTableBuilderSamples.m in Sources */,
+				5B7135611AC867F50085559E /* MRTestViewController.m in Sources */,
+				5B84A72D1AC7446400FBEEBC /* main.m in Sources */,
+				5B84A75E1AC74DEB00FBEEBC /* MRSampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B84A73C1AC7446400FBEEBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B84A7471AC7446400FBEEBC /* MRTableBuilderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B84A7421AC7446400FBEEBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B84A7261AC7446400FBEEBC /* MRTableBuilder */;
+			targetProxy = 5B84A7411AC7446400FBEEBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B84A7391AC7446400FBEEBC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B84A73A1AC7446400FBEEBC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B84A7481AC7446400FBEEBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5B84A7491AC7446400FBEEBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B84A74B1AC7446400FBEEBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MRTableBuilder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5B84A74C1AC7446400FBEEBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MRTableBuilder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5B84A74E1AC7446400FBEEBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MRTableBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MRTableBuilder.app/MRTableBuilder";
+			};
+			name = Debug;
+		};
+		5B84A74F1AC7446400FBEEBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MRTableBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MRTableBuilder.app/MRTableBuilder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B84A7221AC7446400FBEEBC /* Build configuration list for PBXProject "MRTableBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B84A7481AC7446400FBEEBC /* Debug */,
+				5B84A7491AC7446400FBEEBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B84A74A1AC7446400FBEEBC /* Build configuration list for PBXNativeTarget "MRTableBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B84A74B1AC7446400FBEEBC /* Debug */,
+				5B84A74C1AC7446400FBEEBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B84A74D1AC7446400FBEEBC /* Build configuration list for PBXNativeTarget "MRTableBuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B84A74E1AC7446400FBEEBC /* Debug */,
+				5B84A74F1AC7446400FBEEBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B84A71F1AC7446400FBEEBC /* Project object */;
+}
