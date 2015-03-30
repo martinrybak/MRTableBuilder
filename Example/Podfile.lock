@@ -1,0 +1,14 @@
+PODS:
+  - MRTableBuilder (0.1.0)
+
+DEPENDENCIES:
+  - MRTableBuilder (from `../`)
+
+EXTERNAL SOURCES:
+  MRTableBuilder:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MRTableBuilder: 9434ea98202c81d01448688b7aca065f8ff34daf
+
+COCOAPODS: 0.35.0
