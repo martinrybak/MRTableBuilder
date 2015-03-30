@@ -33,6 +33,8 @@
 	__block BOOL useEstimatedRowHeights = NO;
 	__block BOOL useEstimatedHeaderHeights = NO;
 	__block BOOL useEstimatedFooterHeights = NO;
+	__block BOOL useHeaderViews = NO;
+	__block BOOL useFooterViews = NO;
 	__block BOOL useHeaderHeights = NO;
 	__block BOOL useFooterHeights = NO;
 	__block BOOL hasTitlesForDeleteConfirmationButtons = NO;
@@ -48,8 +50,10 @@
 		useEstimatedRowHeights |= row.estimatedHeight > 0;
 		useEstimatedHeaderHeights |= section.header.estimatedHeight > 0;
 		useEstimatedFooterHeights |= section.footer.estimatedHeight > 0;
+		useHeaderViews |= section.header != nil;
+		useFooterViews |= section.footer != nil;
 		useHeaderHeights |= section.header.height || section.headerHeight;
-		useFooterHeights |=section.footer.height || section.footerHeight;
+		useFooterHeights |= section.footer.height || section.footerHeight;
 		hasTitlesForDeleteConfirmationButtons |= row.titleForDeleteConfirmationButton != nil;
 		useHighlights |= row.shouldHighlight != nil;
 		useIndents |= row.shouldIndentWhileEditing != nil;
@@ -68,6 +72,12 @@
 	}
 	if (aSelector == @selector(tableView:estimatedHeightForFooterInSection:)) {
 		return useEstimatedFooterHeights;
+	}
+	if (aSelector == @selector(tableView:viewForHeaderInSection:)) {
+		return useHeaderViews;
+	}
+	if (aSelector == @selector(tableView:viewForFooterInSection:)) {
+		return useFooterViews;
 	}
 	if (aSelector == @selector(tableView:heightForHeaderInSection:)) {
 		return useHeaderHeights;
@@ -212,7 +222,7 @@
 	return [formSection tableView:tableView titleForHeaderInSection:section];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView*)tableView titleForFooterInSection:(NSInteger)section
 {
 	MRTableSection* formSection = self.sections[section];
 	return [formSection tableView:tableView titleForFooterInSection:section];
@@ -505,7 +515,7 @@
 	for (int i = 0; i < self.sections.count; i++) {
 		MRTableSection* section = self.sections[i];
 		if (block) {
-			BOOL stop;
+			BOOL stop = NO;
 			block(section, &stop);
 			if (stop) {
 				break;
@@ -521,7 +531,7 @@
 		for (int j = 0; j < section.rows.count; j++) {
 			MRTableRow* row = section.rows[j];
 			if (block) {
-				BOOL stop;
+				BOOL stop = NO;
 				block(section, row, &stop);
 				if (stop) {
 					break;
