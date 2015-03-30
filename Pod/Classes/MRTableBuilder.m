@@ -159,6 +159,34 @@
 	[self.sections removeAllObjects];
 }
 
+- (NSIndexPath*)indexPathForRow:(MRTableRow*)aRow
+{
+	for (int i = 0; i < self.sections.count; i++) {
+		MRTableSection* section = self.sections[i];
+		for (int j = 0; j < section.rows.count; j++) {
+			MRTableRow* row = section.rows[j];
+			if (row == aRow) {
+				return [NSIndexPath indexPathForRow:j inSection:i];;
+			}
+		}
+	}
+	return nil;
+}
+
+- (id)cellForRow:(MRTableRow*)row
+{
+	if (!row) {
+		return nil;
+	}
+	
+	NSIndexPath* indexPath = [self indexPathForRow:row];
+	UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+	if (!cell) {
+		cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+	}
+	return cell;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section

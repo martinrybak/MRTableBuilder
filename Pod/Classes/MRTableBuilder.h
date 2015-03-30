@@ -20,5 +20,7 @@
 - (void)addSection:(MRTableSection*)section;
 - (void)removeSection:(MRTableSection*)section;
 - (void)clear;
+- (id)cellForRow:(MRTableRow*)row;
+- (NSIndexPath*)indexPathForRow:(MRTableRow*)aRow;
 
 @end
