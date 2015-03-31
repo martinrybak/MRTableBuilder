@@ -199,7 +199,11 @@
 			return self.header.height;
 		}
 		UITableViewHeaderFooterView* header = [self.header buildView];
-		return [header systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+		CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+		if (!height) {
+			height = self.tableBuilder.tableView.sectionHeaderHeight;
+		}
+		return height;
 	}
 	if (self.headerHeight) {
 		return self.headerHeight;
@@ -214,7 +218,11 @@
 			return self.footer.height;
 		}
 		UITableViewHeaderFooterView* footer = [self.footer buildView];
-		return [footer.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.0;
+		CGFloat height = [footer systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+		if (!height) {
+			height = self.tableBuilder.tableView.sectionFooterHeight;
+		}
+		return height;
 	}
 	if (self.footerHeight) {
 		return self.footerHeight;
