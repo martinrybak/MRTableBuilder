@@ -100,6 +100,9 @@
 	if (aSelector == @selector(tableView:canMoveRowAtIndexPath:)) {
 		return useMoveRows;
 	}
+	if (aSelector == @selector(tableView:commitEditingStyle:forRowAtIndexPath:)) {
+		return useEditRows;
+	}
 	if (aSelector == @selector(tableView:moveRowAtIndexPath:toIndexPath:)) {
 		return useMoveRows;
 	}
