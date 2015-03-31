@@ -168,11 +168,28 @@
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	MRTableRow* row = self.rows[indexPath.row];
+	
+	//If the row has an explicit height set, return it
 	if (row.height) {
 		return row.height;
 	}
+	
+	//Calculate cell height using auto layout
 	UITableViewCell* cell = [row buildCell];
-	return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1.0;
+	CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+	
+	//No height, default to tableView row height
+	if (!cellHeight) {
+		cellHeight = self.tableBuilder.tableView.rowHeight;
+	}
+	
+	//Account for tableView cell separator line (if not set to none)
+	CGFloat separatorHeight = 1.0;
+	if (self.tableBuilder.tableView.separatorStyle == UITableViewCellSeparatorStyleNone) {
+		separatorHeight = 0.0;
+	};
+	
+	return cellHeight + separatorHeight;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
