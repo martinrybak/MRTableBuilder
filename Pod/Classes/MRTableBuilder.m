@@ -38,6 +38,7 @@
 	__block BOOL useHeaderHeights = NO;
 	__block BOOL useFooterHeights = NO;
 	__block BOOL hasTitlesForDeleteConfirmationButtons = NO;
+	__block BOOL useEditActions = NO;
 	__block BOOL useHighlights = NO;
 	__block BOOL useIndents = NO;
 	__block BOOL useEditRows = NO;
@@ -55,6 +56,7 @@
 		useHeaderHeights |= section.header.height || section.headerHeight;
 		useFooterHeights |= section.footer.height || section.footerHeight;
 		hasTitlesForDeleteConfirmationButtons |= row.titleForDeleteConfirmationButton != nil;
+		useEditActions |= row.editActions != nil;
 		useHighlights |= row.shouldHighlight != nil;
 		useIndents |= row.shouldIndentWhileEditing != nil;
 		useEditRows |= row.canEdit != nil;
@@ -87,6 +89,9 @@
 	}
 	if (aSelector == @selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)) {
 		return hasTitlesForDeleteConfirmationButtons;
+	}
+	if (aSelector == @selector(tableView:editActionsForRowAtIndexPath:)) {
+		return useEditActions;
 	}
 	if (aSelector == @selector(tableView:shouldHighlightRowAtIndexPath:)) {
 		return useHighlights;
