@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/martinrybak/MRTableBuilder"
   s.license          = 'MIT'
   s.author           = { "Martin Rybak" => "martin.rybak@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/MRTableBuilder.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/martinrybak/MRTableBuilder.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*'
