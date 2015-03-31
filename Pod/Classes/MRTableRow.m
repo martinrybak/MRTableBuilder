@@ -30,6 +30,15 @@
 	return self;
 }
 
+- (instancetype)initWithClass:(Class)class
+{
+	if (self = [super init]) {
+		_cellClass = class;
+		_reuseIdentifier = [class description];
+	}
+	return self;
+}
+
 - (instancetype)initWithReuseIdentifier:(NSString*)reuseIdentifier
 {
 	if (self = [super init]) {
