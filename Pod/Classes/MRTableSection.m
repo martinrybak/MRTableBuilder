@@ -230,7 +230,7 @@
 	if (row.estimatedHeight) {
 		return row.estimatedHeight;
 	}
-	return 0;
+	return self.tableBuilder.tableView.rowHeight;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView estimatedHeightForHeaderInSection:(NSInteger)section
@@ -238,7 +238,7 @@
 	if (self.header) {
 		return self.header.estimatedHeight;
 	}
-	return 0;
+	return self.tableBuilder.tableView.sectionHeaderHeight;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView estimatedHeightForFooterInSection:(NSInteger)section
@@ -246,7 +246,7 @@
 	if (self.footer) {
 		return self.footer.estimatedHeight;
 	}
-	return 0;
+	return self.tableBuilder.tableView.sectionFooterHeight;
 }
 
 // Section header & footer information. Views are preferred over title should you decide to provide both
