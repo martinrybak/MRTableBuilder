@@ -10,9 +10,14 @@
 		4A32F6038237EC004E70D135 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FF6A397F2293D025ED6BAD /* libPods-Tests.a */; };
 		51EA875A79591FFE1EE331DE /* libPods-MRTableBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4F52C88EC2D0FAFC3EE9D2 /* libPods-MRTableBuilder.a */; };
 		5B31581F1AC9582200815417 /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3158181AC9582200815417 /* MRAppDelegate.m */; };
-		5B3158201AC9582200815417 /* MRSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B31581A1AC9582200815417 /* MRSampleViewController.m */; };
-		5B3158211AC9582200815417 /* MRTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B31581C1AC9582200815417 /* MRTestViewController.m */; };
-		5B3158221AC9582200815417 /* MRTableBuilderSamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B31581E1AC9582200815417 /* MRTableBuilderSamples.m */; };
+		5B744AC11ACA88260084AB40 /* MRTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B744AC01ACA88260084AB40 /* MRTextFieldCell.xib */; };
+		5B744AC51ACA97580084AB40 /* MRMultilineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B744AC21ACA97580084AB40 /* MRMultilineCell.xib */; };
+		5B744AC61ACA97580084AB40 /* MRMultilineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B744AC41ACA97580084AB40 /* MRMultilineCell.m */; };
+		5B744ACA1ACAB8B20084AB40 /* MRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B744AC81ACAB8B20084AB40 /* MRLoginViewController.m */; };
+		5B744ACB1ACAB8B20084AB40 /* MRLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B744AC91ACAB8B20084AB40 /* MRLoginViewController.xib */; };
+		5B74A8711ACA090E00056886 /* MRStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A8701ACA090E00056886 /* MRStartViewController.m */; };
+		5B74A8741ACA105700056886 /* MRTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B74A8731ACA105700056886 /* MRTextFieldCell.m */; };
+		5BFEAF421ACB4D3900A373EA /* MRVariableHeightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEAF411ACB4D3900A373EA /* MRVariableHeightsViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -42,12 +47,19 @@
 		4BEAC66DD87700EB662A6EC3 /* Pods-MRTableBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRTableBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MRTableBuilder/Pods-MRTableBuilder.debug.xcconfig"; sourceTree = "<group>"; };
 		5B3158171AC9582200815417 /* MRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
 		5B3158181AC9582200815417 /* MRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
-		5B3158191AC9582200815417 /* MRSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRSampleViewController.h; sourceTree = "<group>"; };
-		5B31581A1AC9582200815417 /* MRSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRSampleViewController.m; sourceTree = "<group>"; };
-		5B31581B1AC9582200815417 /* MRTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTestViewController.h; sourceTree = "<group>"; };
-		5B31581C1AC9582200815417 /* MRTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTestViewController.m; sourceTree = "<group>"; };
-		5B31581D1AC9582200815417 /* MRTableBuilderSamples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTableBuilderSamples.h; sourceTree = "<group>"; };
-		5B31581E1AC9582200815417 /* MRTableBuilderSamples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTableBuilderSamples.m; sourceTree = "<group>"; };
+		5B744AC01ACA88260084AB40 /* MRTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRTextFieldCell.xib; sourceTree = "<group>"; };
+		5B744AC21ACA97580084AB40 /* MRMultilineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRMultilineCell.xib; sourceTree = "<group>"; };
+		5B744AC31ACA97580084AB40 /* MRMultilineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMultilineCell.h; sourceTree = "<group>"; };
+		5B744AC41ACA97580084AB40 /* MRMultilineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMultilineCell.m; sourceTree = "<group>"; };
+		5B744AC71ACAB8B20084AB40 /* MRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRLoginViewController.h; sourceTree = "<group>"; };
+		5B744AC81ACAB8B20084AB40 /* MRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRLoginViewController.m; sourceTree = "<group>"; };
+		5B744AC91ACAB8B20084AB40 /* MRLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRLoginViewController.xib; sourceTree = "<group>"; };
+		5B74A86F1ACA090E00056886 /* MRStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRStartViewController.h; sourceTree = "<group>"; };
+		5B74A8701ACA090E00056886 /* MRStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRStartViewController.m; sourceTree = "<group>"; };
+		5B74A8721ACA105700056886 /* MRTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRTextFieldCell.h; sourceTree = "<group>"; };
+		5B74A8731ACA105700056886 /* MRTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRTextFieldCell.m; sourceTree = "<group>"; };
+		5BFEAF401ACB4D3900A373EA /* MRVariableHeightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRVariableHeightsViewController.h; sourceTree = "<group>"; };
+		5BFEAF411ACB4D3900A373EA /* MRVariableHeightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRVariableHeightsViewController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MRTableBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRTableBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +109,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BFEAF391ACB47E600A373EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEAF3E1ACB4A6800A373EA /* Multiline Cell */,
+				5BFEAF3D1ACB4A5E00A373EA /* Text Field Cell */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5BFEAF3A1ACB47E900A373EA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEAF3F1ACB4D2100A373EA /* Variable Heights */,
+				5BFEAF3C1ACB47FF00A373EA /* Start */,
+				5BFEAF3B1ACB47F700A373EA /* Login */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5BFEAF3B1ACB47F700A373EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5B744AC91ACAB8B20084AB40 /* MRLoginViewController.xib */,
+				5B744AC71ACAB8B20084AB40 /* MRLoginViewController.h */,
+				5B744AC81ACAB8B20084AB40 /* MRLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		5BFEAF3C1ACB47FF00A373EA /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				5B74A86F1ACA090E00056886 /* MRStartViewController.h */,
+				5B74A8701ACA090E00056886 /* MRStartViewController.m */,
+			);
+			name = Start;
+			sourceTree = "<group>";
+		};
+		5BFEAF3D1ACB4A5E00A373EA /* Text Field Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5B744AC01ACA88260084AB40 /* MRTextFieldCell.xib */,
+				5B74A8721ACA105700056886 /* MRTextFieldCell.h */,
+				5B74A8731ACA105700056886 /* MRTextFieldCell.m */,
+			);
+			name = "Text Field Cell";
+			sourceTree = "<group>";
+		};
+		5BFEAF3E1ACB4A6800A373EA /* Multiline Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5B744AC21ACA97580084AB40 /* MRMultilineCell.xib */,
+				5B744AC31ACA97580084AB40 /* MRMultilineCell.h */,
+				5B744AC41ACA97580084AB40 /* MRMultilineCell.m */,
+			);
+			name = "Multiline Cell";
+			sourceTree = "<group>";
+		};
+		5BFEAF3F1ACB4D2100A373EA /* Variable Heights */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEAF401ACB4D3900A373EA /* MRVariableHeightsViewController.h */,
+				5BFEAF411ACB4D3900A373EA /* MRVariableHeightsViewController.m */,
+			);
+			name = "Variable Heights";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -134,14 +213,10 @@
 		6003F593195388D20070C39A /* MRTableBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				5BFEAF391ACB47E600A373EA /* View */,
+				5BFEAF3A1ACB47E900A373EA /* Controller */,
 				5B3158171AC9582200815417 /* MRAppDelegate.h */,
 				5B3158181AC9582200815417 /* MRAppDelegate.m */,
-				5B3158191AC9582200815417 /* MRSampleViewController.h */,
-				5B31581A1AC9582200815417 /* MRSampleViewController.m */,
-				5B31581B1AC9582200815417 /* MRTestViewController.h */,
-				5B31581C1AC9582200815417 /* MRTestViewController.m */,
-				5B31581D1AC9582200815417 /* MRTableBuilderSamples.h */,
-				5B31581E1AC9582200815417 /* MRTableBuilderSamples.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -281,7 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				5B744AC11ACA88260084AB40 /* MRTextFieldCell.xib in Resources */,
+				5B744ACB1ACAB8B20084AB40 /* MRLoginViewController.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				5B744AC51ACA97580084AB40 /* MRMultilineCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,11 +441,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3158221AC9582200815417 /* MRTableBuilderSamples.m in Sources */,
+				5B74A8711ACA090E00056886 /* MRStartViewController.m in Sources */,
+				5B744ACA1ACAB8B20084AB40 /* MRLoginViewController.m in Sources */,
+				5B74A8741ACA105700056886 /* MRTextFieldCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				5B3158201AC9582200815417 /* MRSampleViewController.m in Sources */,
+				5BFEAF421ACB4D3900A373EA /* MRVariableHeightsViewController.m in Sources */,
 				5B31581F1AC9582200815417 /* MRAppDelegate.m in Sources */,
-				5B3158211AC9582200815417 /* MRTestViewController.m in Sources */,
+				5B744AC61ACA97580084AB40 /* MRMultilineCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
