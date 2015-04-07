@@ -47,14 +47,17 @@
 	__block BOOL useEditingStyles = NO;
 	__block BOOL useIndentationLevels = NO;
 	
-	[self enumerateRowsUsingBlock:^(MRTableSection* section, MRTableRow* row, BOOL* stop) {
-		useEstimatedRowHeights |= row.estimatedHeight > 0;
+	[self enumerateSectionsUsingBlock:^(MRTableSection* section, BOOL* stop) {
 		useEstimatedHeaderHeights |= section.header.estimatedHeight > 0;
 		useEstimatedFooterHeights |= section.footer.estimatedHeight > 0;
 		useHeaderViews |= section.header != nil;
 		useFooterViews |= section.footer != nil;
 		useHeaderHeights |= section.header.height || section.headerHeight;
 		useFooterHeights |= section.footer.height || section.footerHeight;
+	}];
+	
+	[self enumerateRowsUsingBlock:^(MRTableSection* section, MRTableRow* row, BOOL* stop) {
+		useEstimatedRowHeights |= row.estimatedHeight > 0;
 		hasTitlesForDeleteConfirmationButtons |= row.titleForDeleteConfirmationButton != nil;
 		useEditActions |= row.editActions != nil;
 		useHighlights |= row.shouldHighlight != nil;
