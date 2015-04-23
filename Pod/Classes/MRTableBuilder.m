@@ -201,10 +201,15 @@
 	}
 	
 	NSIndexPath* indexPath = [self indexPathForRow:row];
+	if (!indexPath) {
+		return nil;
+	}
+	
 	UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	if (!cell) {
 		cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
 	}
+	
 	return cell;
 }
 
