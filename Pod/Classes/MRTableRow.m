@@ -73,6 +73,10 @@
 
 - (void)configureCell:(UITableViewCell*)cell
 {
+	//Set cell width to match tableView width
+	[self.section.tableBuilder.tableView layoutIfNeeded];
+	cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.section.tableBuilder.tableView.bounds), CGRectGetHeight(cell.bounds));
+	
 	if (self.onConfigure) {
 		self.onConfigure(cell);
 	}
