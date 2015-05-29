@@ -11,6 +11,7 @@
 @interface MRTableBuilder : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic, readonly) UITableView* tableView;
+@property (strong, nonatomic) NSMutableArray* sections;
 @property (copy, nonatomic) NSArray* sectionIndexTitles;
 @property (copy, nonatomic) NSInteger(^sectionForSectionIndex)(NSString* title, NSInteger index);
 @property (copy, nonatomic) NSIndexPath*(^targetIndexPathForMove)(NSIndexPath* sourceIndexPath, NSIndexPath* proposedDestinationIndexPath);

@@ -28,6 +28,10 @@
 
 - (instancetype)init;
 - (void)addRow:(MRTableRow*)row;
+- (void)addRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation;
 - (void)removeRow:(MRTableRow*)row;
+- (void)removeRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation;
+- (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow;
+- (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow withAnimation:(UITableViewRowAnimation)animation;
 
 @end

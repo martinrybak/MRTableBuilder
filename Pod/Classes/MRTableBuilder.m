@@ -11,7 +11,6 @@
 @interface MRTableBuilder ()
 
 @property (weak, nonatomic, readwrite) UITableView* tableView;
-@property (strong, nonatomic) NSMutableArray* sections;
 
 @end
 

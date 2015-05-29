@@ -41,10 +41,44 @@
 	[self.rows addObject:row];
 }
 
+- (void)addRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation
+{
+	[self.tableBuilder.tableView beginUpdates];
+	[self addRow:row];
+	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
+	[self.tableBuilder.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+	[self.tableBuilder.tableView endUpdates];
+}
+
 - (void)removeRow:(MRTableRow*)row
 {
 	row.section = nil;
 	[self.rows removeObject:row];
+}
+
+- (void)removeRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation
+{
+	[self.tableBuilder.tableView beginUpdates];
+	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
+	[self removeRow:row];
+	[self.tableBuilder.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+	[self.tableBuilder.tableView endUpdates];
+}
+
+- (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow
+{
+	row.section = self;
+	NSUInteger index = [self.rows indexOfObject:afterRow];
+	[self.rows insertObject:row atIndex:index + 1];
+}
+
+- (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow withAnimation:(UITableViewRowAnimation)animation
+{
+	[self.tableBuilder.tableView beginUpdates];
+	[self insertRow:row afterRow:afterRow];
+	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
+	[self.tableBuilder.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+	[self.tableBuilder.tableView endUpdates];
 }
 
 #pragma mark - UITableViewDataSource
