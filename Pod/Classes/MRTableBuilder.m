@@ -135,30 +135,12 @@
 	
 	//Register custom headers and footers
 	[self enumerateSectionsUsingBlock:^(MRTableSection* section, BOOL* stop) {
-		if (section.header) {
-			if (section.header.viewNib) {
-				[self.tableView registerNib:section.header.viewNib forHeaderFooterViewReuseIdentifier:section.header.reuseIdentifier];
-			} else {
-				[self.tableView registerClass:section.header.viewClass forHeaderFooterViewReuseIdentifier:section.header.reuseIdentifier];
-			}
-		}
-		if (section.footer) {
-			if (section.footer.viewNib) {
-				[self.tableView registerNib:section.footer.viewNib forHeaderFooterViewReuseIdentifier:section.footer.reuseIdentifier];
-			} else {
-				[self.tableView registerClass:section.footer.viewClass forHeaderFooterViewReuseIdentifier:section.footer.reuseIdentifier];
-			}
-		}
+		[self registerSection:section];
 	}];
 	
 	//Register custom cells
 	[self enumerateRowsUsingBlock:^(MRTableSection* section, MRTableRow* row, BOOL* stop) {
-		if (row.cellNib) {
-			[self.tableView registerNib:row.cellNib forCellReuseIdentifier:row.reuseIdentifier];
-			return;
-		} else {
-			[self.tableView registerClass:row.cellClass forCellReuseIdentifier:row.reuseIdentifier];
-		}
+		[self registerRow:row];
 	}];
 }
 
@@ -210,6 +192,34 @@
 	}
 	
 	return cell;
+}
+
+- (void)registerRow:(MRTableRow*)row
+{
+	if (row.cellNib) {
+		[self.tableView registerNib:row.cellNib forCellReuseIdentifier:row.reuseIdentifier];
+		return;
+	} else {
+		[self.tableView registerClass:row.cellClass forCellReuseIdentifier:row.reuseIdentifier];
+	}
+}
+
+- (void)registerSection:(MRTableSection*)section
+{
+	if (section.header) {
+		if (section.header.viewNib) {
+			[self.tableView registerNib:section.header.viewNib forHeaderFooterViewReuseIdentifier:section.header.reuseIdentifier];
+		} else {
+			[self.tableView registerClass:section.header.viewClass forHeaderFooterViewReuseIdentifier:section.header.reuseIdentifier];
+		}
+	}
+	if (section.footer) {
+		if (section.footer.viewNib) {
+			[self.tableView registerNib:section.footer.viewNib forHeaderFooterViewReuseIdentifier:section.footer.reuseIdentifier];
+		} else {
+			[self.tableView registerClass:section.footer.viewClass forHeaderFooterViewReuseIdentifier:section.footer.reuseIdentifier];
+		}
+	}
 }
 
 #pragma mark - UITableViewDataSource

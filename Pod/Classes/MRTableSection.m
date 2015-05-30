@@ -43,6 +43,7 @@
 
 - (void)addRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation
 {
+	[self.tableBuilder registerRow:row];
 	[self.tableBuilder.tableView beginUpdates];
 	[self addRow:row];
 	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
@@ -74,6 +75,7 @@
 
 - (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow withAnimation:(UITableViewRowAnimation)animation
 {
+	[self.tableBuilder registerRow:row];
 	[self.tableBuilder.tableView beginUpdates];
 	[self insertRow:row afterRow:afterRow];
 	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
