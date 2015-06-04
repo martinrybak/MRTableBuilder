@@ -26,6 +26,12 @@
 	return self;
 }
 
+- (void)dealloc
+{
+	self.tableView.delegate = nil;
+	self.tableView.dataSource = nil;
+}
+
 //Only say YES to some selectors if at least one section or row has a value set
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
