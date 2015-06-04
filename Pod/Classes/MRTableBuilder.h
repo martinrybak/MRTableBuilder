@@ -23,6 +23,10 @@
 - (void)clear;
 - (id)cellForRow:(MRTableRow*)row;
 - (NSIndexPath*)indexPathForRow:(MRTableRow*)aRow;
+- (void)reloadRow:(MRTableRow*)row;
+- (void)reloadRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation;
+- (void)reloadRows:(NSArray*)rows;
+- (void)reloadRows:(NSArray*)rows withAnimation:(UITableViewRowAnimation)animation;
 - (void)registerRow:(MRTableRow*)row;
 - (void)registerSection:(MRTableSection*)section;
 

@@ -175,6 +175,36 @@
 	return nil;
 }
 
+- (void)reloadRow:(MRTableRow*)row
+{
+	[self reloadRow:row withAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)reloadRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation
+{
+	NSIndexPath* indexPath = [self indexPathForRow:row];
+	if (indexPath) {
+		[self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+	}
+}
+
+- (void)reloadRows:(NSArray*)rows
+{
+	[self reloadRows:rows withAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)reloadRows:(NSArray*)rows withAnimation:(UITableViewRowAnimation)animation
+{
+	NSMutableArray* indexPaths = [NSMutableArray array];
+	for (MRTableRow* row in rows) {
+		NSIndexPath* indexPath = [self indexPathForRow:row];
+		if (indexPath) {
+			[indexPaths addObject:indexPath];
+		}
+	}
+	[self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
 - (id)cellForRow:(MRTableRow*)row
 {
 	if (!row) {
