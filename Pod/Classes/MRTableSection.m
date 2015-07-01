@@ -51,6 +51,24 @@
 	[self.tableBuilder.tableView endUpdates];
 }
 
+- (void)addRows:(NSArray*)rows
+{
+	for (MRTableRow* row in rows) {
+		[self addRow:row];
+	}
+}
+
+- (void)addRows:(NSArray*)rows withAnimation:(UITableViewRowAnimation)animation
+{
+	[self.tableBuilder.tableView beginUpdates];
+	for (MRTableRow* row in rows) {
+		[self addRow:row];
+		NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
+		[self.tableBuilder.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+	}
+	[self.tableBuilder.tableView endUpdates];
+}
+
 - (void)removeRow:(MRTableRow*)row
 {
 	row.section = nil;
