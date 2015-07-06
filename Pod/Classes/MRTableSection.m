@@ -212,6 +212,7 @@
 	
 	//Calculate cell height using auto layout
 	UITableViewCell* cell = [row buildCell];
+	[cell layoutIfNeeded];
 	CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 	
 	//No height, default to tableView row height
