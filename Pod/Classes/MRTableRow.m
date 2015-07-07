@@ -66,17 +66,26 @@
 
 - (UITableViewCell*)buildCell
 {
-	UITableViewCell* cell = [self.section.tableBuilder.tableView dequeueReusableCellWithIdentifier:self.reuseIdentifier];
+	UITableView* tableView = self.section.tableBuilder.tableView;
+	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:self.reuseIdentifier];
+	
+	//Trigger an auto layout pass to update the table's bounds
+	[tableView layoutIfNeeded];
+	
+	//Manually set the cell bounds using the table width
+	cell.bounds = CGRectMake(0.0f, 0.0f, tableView.bounds.size.width, cell.bounds.size.height);
+	
+	//Update the cell contents
 	[self configureCell:cell];
+	
+	//Trigger an auto layout pass on the cell
+	[cell layoutIfNeeded];
+	
 	return cell;
 }
 
 - (void)configureCell:(UITableViewCell*)cell
 {
-	//Set cell width to match tableView width
-	[self.section.tableBuilder.tableView layoutIfNeeded];
-	cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.section.tableBuilder.tableView.bounds), CGRectGetHeight(cell.bounds));
-	
 	if (self.onConfigure) {
 		self.onConfigure(cell);
 	}
