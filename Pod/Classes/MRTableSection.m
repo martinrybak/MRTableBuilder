@@ -9,6 +9,8 @@
 #import "MRTableSection.h"
 #import "MRTableBuilder.h"
 
+CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
+
 @implementation MRTableSection
 
 #pragma mark - NSObject
@@ -242,13 +244,12 @@
 		cellHeight = self.tableBuilder.tableView.rowHeight;
 	}
 	
-	//Account for tableView cell separator line (if not set to none)
-	CGFloat separatorHeight = 1.0;
-	if (self.tableBuilder.tableView.separatorStyle == UITableViewCellSeparatorStyleNone) {
-		separatorHeight = 0.0;
+	//Return height accounting for cell separator
+	if (self.tableBuilder.tableView.separatorStyle) {
+		return cellHeight + MRTableSectionDefaultCellSeparatorHeight;
 	};
 	
-	return cellHeight + separatorHeight;
+	return cellHeight;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
