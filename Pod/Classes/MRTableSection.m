@@ -228,7 +228,12 @@
 		return row.height;
 	}
 	
-	//Calculate cell height using auto layout
+	//Calculate cell height using auto layout (iOS 8 and newer)
+	if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+		return UITableViewAutomaticDimension;
+	}
+	
+	//Calculate cell height using auto layout (iOS 7.1 and older)
 	UITableViewCell* cell = [row buildCell];
 	CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 	

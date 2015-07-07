@@ -8,6 +8,8 @@
 
 #import "MRTableBuilder.h"
 
+CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
+
 @interface MRTableBuilder ()
 
 @property (weak, nonatomic, readwrite) UITableView* tableView;
@@ -138,6 +140,19 @@
 	_tableView = tableView;
 	tableView.dataSource = self;
 	tableView.delegate = self;
+	
+	//If iOS8 or greater, set table view row height and estimated row height
+	if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+		tableView.rowHeight = UITableViewAutomaticDimension;
+		//If estimated row height is not set, use row height or else default
+		if (!tableView.estimatedRowHeight) {
+			if (tableView.rowHeight > 0) {
+				tableView.estimatedRowHeight = tableView.rowHeight;
+			} else {
+				tableView.estimatedRowHeight = MRTableBuilderDefaultRowHeight;
+			}
+		}
+	}
 	
 	//Register custom headers and footers
 	[self enumerateSectionsUsingBlock:^(MRTableSection* section, BOOL* stop) {

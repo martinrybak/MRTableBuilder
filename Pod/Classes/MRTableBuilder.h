@@ -8,6 +8,8 @@
 
 #import "MRTableSection.h"
 
+extern CGFloat const MRTableBuilderDefaultRowHeight;
+
 @interface MRTableBuilder : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic, readonly) UITableView* tableView;
