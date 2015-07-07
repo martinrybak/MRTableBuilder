@@ -295,10 +295,29 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 - (CGFloat)tableView:(UITableView*)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	MRTableRow* row = self.rows[indexPath.row];
+	
+	//Check if the row has an explicit height
+	if (row.height) {
+		return row.height;
+	}
+	
+	//Check if the row has an explicit estimated height
 	if (row.estimatedHeight) {
 		return row.estimatedHeight;
 	}
-	return self.tableBuilder.tableView.rowHeight;
+	
+	//Check if the table has a row height
+	if (self.tableBuilder.tableView.rowHeight > 0) {
+		return self.tableBuilder.tableView.rowHeight;
+	}
+	
+	//Check if the table has an estimated row height
+	if (self.tableBuilder.tableView.estimatedRowHeight > 0) {
+		return self.tableBuilder.tableView.estimatedRowHeight;
+	}
+	
+	//Use default row height
+	return MRTableBuilderDefaultRowHeight;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView estimatedHeightForHeaderInSection:(NSInteger)section
