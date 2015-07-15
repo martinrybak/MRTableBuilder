@@ -237,6 +237,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	
 	//Calculate cell height using auto layout (iOS 7.1 and older)
 	UITableViewCell* cell = [row buildCell];
+	[cell layoutIfNeeded];
 	CGFloat cellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 	
 	//No height, default to tableView row height
