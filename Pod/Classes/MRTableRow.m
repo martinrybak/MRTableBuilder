@@ -60,6 +60,7 @@
 - (UITableViewCell*)buildCellWithIndexPath:(NSIndexPath*)indexPath
 {
 	UITableViewCell* cell = [self.section.tableBuilder.tableView dequeueReusableCellWithIdentifier:self.reuseIdentifier forIndexPath:indexPath];
+	cell.bounds = CGRectMake(0.0f, 0.0f, self.section.tableBuilder.tableView.bounds.size.width, cell.bounds.size.height);
 	[self configureCell:cell];
 	return cell;
 }
