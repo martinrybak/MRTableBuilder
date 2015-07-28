@@ -163,6 +163,9 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	[self enumerateRowsUsingBlock:^(MRTableSection* section, MRTableRow* row, BOOL* stop) {
 		[self registerRow:row];
 	}];
+	
+	//Trigger a reload of the table
+	[tableView reloadData];
 }
 
 - (void)addSection:(MRTableSection*)section
