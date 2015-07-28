@@ -137,6 +137,14 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 
 - (void)bindToTableView:(UITableView*)tableView
 {
+	//Clear out the old datasource and delegate
+	tableView.dataSource = nil;
+	tableView.delegate = nil;
+	
+	//Prevent tableView:didEndDisplayingCell:forRowAtIndexPath from being called on previous cells
+	[tableView reloadData];
+	
+	//Set self as the new datasource and delegate
 	_tableView = tableView;
 	tableView.dataSource = self;
 	tableView.delegate = self;
