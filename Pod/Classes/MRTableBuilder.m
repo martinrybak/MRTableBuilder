@@ -37,7 +37,6 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 //Only say YES to some selectors if at least one section or row has a value set
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-	__block BOOL useEstimatedRowHeights = NO;
 	__block BOOL useEstimatedHeaderHeights = NO;
 	__block BOOL useEstimatedFooterHeights = NO;
 	__block BOOL useHeaderViews = NO;
@@ -64,7 +63,6 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	}];
 	
 	[self enumerateRowsUsingBlock:^(MRTableSection* section, MRTableRow* row, BOOL* stop) {
-		useEstimatedRowHeights |= row.estimatedHeight > 0;
 		hasTitlesForDeleteConfirmationButtons |= row.titleForDeleteConfirmationButton != nil;
 		useEditActions |= row.editActions != nil;
 		useHighlights |= row.shouldHighlight != nil;
@@ -76,9 +74,6 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 		useIndentationLevels |= row.indentationLevel != nil;
 	}];
 	
-	if (aSelector == @selector(tableView:estimatedHeightForRowAtIndexPath:)) {
-		return useEstimatedRowHeights;
-	}
 	if (aSelector == @selector(tableView:estimatedHeightForHeaderInSection:)) {
 		return useEstimatedHeaderHeights;
 	}
@@ -148,19 +143,6 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	_tableView = tableView;
 	tableView.dataSource = self;
 	tableView.delegate = self;
-	
-	//If iOS8 or greater, set table view row height and estimated row height
-	if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
-		tableView.rowHeight = UITableViewAutomaticDimension;
-		//If estimated row height is not set, use row height or else default
-		if (!tableView.estimatedRowHeight) {
-			if (tableView.rowHeight > 0) {
-				tableView.estimatedRowHeight = tableView.rowHeight;
-			} else {
-				tableView.estimatedRowHeight = MRTableBuilderDefaultRowHeight;
-			}
-		}
-	}
 	
 	//Register custom headers and footers
 	[self enumerateSectionsUsingBlock:^(MRTableSection* section, BOOL* stop) {
