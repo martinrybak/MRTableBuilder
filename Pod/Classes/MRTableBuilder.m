@@ -309,7 +309,7 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	return [formSection tableView:tableView titleForHeaderInSection:section];
 }
 
-- (NSString *)tableView:(UITableView*)tableView titleForFooterInSection:(NSInteger)section
+- (NSString*)tableView:(UITableView*)tableView titleForFooterInSection:(NSInteger)section
 {
 	MRTableSection* formSection = self.sections[section];
 	return [formSection tableView:tableView titleForFooterInSection:section];
@@ -536,7 +536,7 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 }
 
 // Controls whether the background is indented while editing.  If not implemented, the default is YES.  This is unrelated to the indentation level below.  This method only applies to grouped style table views.
-- (BOOL)tableView:(UITableView*)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView*)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	MRTableSection* formSection = self.sections[indexPath.section];
 	return [formSection tableView:tableView shouldIndentWhileEditingRowAtIndexPath:indexPath];

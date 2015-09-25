@@ -446,7 +446,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 }
 
 // Controls whether the background is indented while editing.  If not implemented, the default is YES.  This is unrelated to the indentation level below.  This method only applies to grouped style table views.
-- (BOOL)tableView:(UITableView*)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView*)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	MRTableRow* row = self.rows[indexPath.row];
 	if (row.shouldIndentWhileEditing) {
