@@ -10,7 +10,6 @@
 		4A32F6038237EC004E70D135 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FF6A397F2293D025ED6BAD /* libPods-Tests.a */; };
 		51EA875A79591FFE1EE331DE /* libPods-MRTableBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4F52C88EC2D0FAFC3EE9D2 /* libPods-MRTableBuilder.a */; };
 		5B31581F1AC9582200815417 /* MRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3158181AC9582200815417 /* MRAppDelegate.m */; };
-		5B744AC11ACA88260084AB40 /* MRTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B744AC01ACA88260084AB40 /* MRTextFieldCell.xib */; };
 		5B744AC51ACA97580084AB40 /* MRMultilineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B744AC21ACA97580084AB40 /* MRMultilineCell.xib */; };
 		5B744AC61ACA97580084AB40 /* MRMultilineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B744AC41ACA97580084AB40 /* MRMultilineCell.m */; };
 		5B744ACA1ACAB8B20084AB40 /* MRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B744AC81ACAB8B20084AB40 /* MRLoginViewController.m */; };
@@ -47,7 +46,6 @@
 		4BEAC66DD87700EB662A6EC3 /* Pods-MRTableBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MRTableBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MRTableBuilder/Pods-MRTableBuilder.debug.xcconfig"; sourceTree = "<group>"; };
 		5B3158171AC9582200815417 /* MRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRAppDelegate.h; sourceTree = "<group>"; };
 		5B3158181AC9582200815417 /* MRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRAppDelegate.m; sourceTree = "<group>"; };
-		5B744AC01ACA88260084AB40 /* MRTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRTextFieldCell.xib; sourceTree = "<group>"; };
 		5B744AC21ACA97580084AB40 /* MRMultilineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRMultilineCell.xib; sourceTree = "<group>"; };
 		5B744AC31ACA97580084AB40 /* MRMultilineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMultilineCell.h; sourceTree = "<group>"; };
 		5B744AC41ACA97580084AB40 /* MRMultilineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMultilineCell.m; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 		5BFEAF3D1ACB4A5E00A373EA /* Text Field Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5B744AC01ACA88260084AB40 /* MRTextFieldCell.xib */,
 				5B74A8721ACA105700056886 /* MRTextFieldCell.h */,
 				5B74A8731ACA105700056886 /* MRTextFieldCell.m */,
 			);
@@ -356,7 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				5B744AC11ACA88260084AB40 /* MRTextFieldCell.xib in Resources */,
 				5B744ACB1ACAB8B20084AB40 /* MRLoginViewController.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				5B744AC51ACA97580084AB40 /* MRMultilineCell.xib in Resources */,

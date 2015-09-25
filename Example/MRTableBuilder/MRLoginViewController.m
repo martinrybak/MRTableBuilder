@@ -69,6 +69,7 @@
 	
 	//Email
 	self.emailRow = [[MRTableRow alloc] initWithClass:[MRTextFieldCell class]];
+	self.emailRow.height = 60.0;
 	self.emailRow.shouldHighlight = @(NO);
 	self.emailRow.onConfigure = ^(MRTextFieldCell* cell) {
 		cell.textField.placeholder = @"Email";
@@ -80,6 +81,7 @@
 	
 	//Password
 	self.passwordRow = [[MRTableRow alloc] initWithClass:[MRTextFieldCell class]];
+	self.passwordRow.height = 60.0;
 	self.passwordRow.shouldHighlight = @(NO);
 	self.passwordRow.onConfigure = ^(MRTextFieldCell* cell) {
 		cell.textField.placeholder = @"Password";
@@ -100,8 +102,8 @@
 		cell.backgroundColor = [UIColor blueColor];
 	};
 	buttonRow.onDidSelect = ^(NSIndexPath* indexPath){
-		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self showAlert];
+		[weakSelf.tableView deselectRowAtIndexPath:indexPath animated:YES];
+		[weakSelf showAlert];
 	};
 	[section addRow:buttonRow];
 	

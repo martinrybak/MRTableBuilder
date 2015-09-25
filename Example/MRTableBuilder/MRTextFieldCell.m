@@ -18,7 +18,7 @@
 		_textField.translatesAutoresizingMaskIntoConstraints = NO;
 		[self.contentView addSubview:_textField];
 		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[textField]-0-|" options:0 metrics:nil views:@{ @"textField": self.textField }]];
-		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[textField(>=60)]-0-|" options:0 metrics:nil views:@{ @"textField": self.textField }]];
+		[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[textField]-0-|" options:0 metrics:nil views:@{ @"textField": self.textField }]];
 	}
 	return self;
 }
