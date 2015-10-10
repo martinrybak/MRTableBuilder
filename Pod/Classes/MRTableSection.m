@@ -11,6 +11,12 @@
 
 CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
+@interface MRTableSection ()
+
+@property (strong, nonatomic) NSIndexPath* deletedIndexPath;
+
+@end
+
 @implementation MRTableSection
 
 #pragma mark - NSObject
@@ -151,6 +157,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	MRTableRow* row = self.rows[indexPath.row];
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		self.deletedIndexPath = indexPath;
 		if (row.onCommitDelete) {
 			row.onCommitDelete();
 		}
@@ -464,8 +471,21 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	}
 }
 
+//This is called twice by commitEditingStyle of type UITableViewCellEditingStyleDelete
 - (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath*)indexPath
 {
+	//The first time, we check to see if the indexPath matches the row that was just deleted, and we do nothing.
+	if ([indexPath isEqual:self.deletedIndexPath]) {
+		return;
+	}
+	
+	//The second time, indexPath will be nil, so we reset and do nothing
+	if (!indexPath) {
+		self.deletedIndexPath = nil;
+		return;
+	}
+	
+	//This is a commitEditingStyle of type UITableViewCellEditingStyleInsert
 	MRTableRow* row = self.rows[indexPath.row];
 	if (row.onDidEndEditing) {
 		row.onDidEndEditing();
