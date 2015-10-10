@@ -34,96 +34,80 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	self.tableView.dataSource = nil;
 }
 
-//Only say YES to some selectors if at least one section or row has a value set
+//Only say YES to some selectors if set explicitly or at least one section or row has a value set
 - (BOOL)respondsToSelector:(SEL)aSelector
 {
-	__block BOOL useEstimatedHeaderHeights = NO;
-	__block BOOL useEstimatedFooterHeights = NO;
-	__block BOOL useHeaderViews = NO;
-	__block BOOL useFooterViews = NO;
-	__block BOOL useHeaderHeights = NO;
-	__block BOOL useFooterHeights = NO;
-	__block BOOL hasTitlesForDeleteConfirmationButtons = NO;
-	__block BOOL useEditActions = NO;
-	__block BOOL useHighlights = NO;
-	__block BOOL useIndents = NO;
-	__block BOOL useEditRows = NO;
-	__block BOOL useMoveRows = NO;
-	__block BOOL useMenus = NO;
-	__block BOOL useEditingStyles = NO;
-	__block BOOL useIndentationLevels = NO;
-	
 	[self enumerateSectionsUsingBlock:^(MRTableSection* section, BOOL* stop) {
-		useEstimatedHeaderHeights |= section.header.estimatedHeight > 0;
-		useEstimatedFooterHeights |= section.footer.estimatedHeight > 0;
-		useHeaderViews |= section.header != nil;
-		useFooterViews |= section.footer != nil;
-		useHeaderHeights |= section.header.height || section.headerHeight;
-		useFooterHeights |= section.footer.height || section.footerHeight;
+		self.useEstimatedHeaderHeights |= section.header.estimatedHeight > 0;
+		self.useEstimatedFooterHeights |= section.footer.estimatedHeight > 0;
+		self.useHeaderViews |= section.header != nil;
+		self.useFooterViews |= section.footer != nil;
+		self.useHeaderHeights |= section.header.height || section.headerHeight;
+		self.useFooterHeights |= section.footer.height || section.footerHeight;
 	}];
 	
 	[self enumerateRowsUsingBlock:^(MRTableSection* section, MRTableRow* row, BOOL* stop) {
-		hasTitlesForDeleteConfirmationButtons |= row.titleForDeleteConfirmationButton != nil;
-		useEditActions |= row.editActions != nil;
-		useHighlights |= row.shouldHighlight != nil;
-		useIndents |= row.shouldIndentWhileEditing != nil;
-		useEditRows |= row.canEdit != nil;
-		useMoveRows |= row.canMove != nil;
-		useMenus |= row.shouldShowMenu != nil;
-		useEditingStyles |= row.editingStyle != nil;
-		useIndentationLevels |= row.indentationLevel != nil;
+		self.hasTitlesForDeleteConfirmationButtons |= row.titleForDeleteConfirmationButton != nil;
+		self.useEditActions |= row.editActions != nil;
+		self.useHighlights |= row.shouldHighlight != nil;
+		self.useIndents |= row.shouldIndentWhileEditing != nil;
+		self.useEditRows |= row.canEdit != nil;
+		self.useMoveRows |= row.canMove != nil;
+		self.useMenus |= row.shouldShowMenu != nil;
+		self.useEditingStyles |= row.editingStyle != nil;
+		self.useIndentationLevels |= row.indentationLevel != nil;
 	}];
 	
 	if (aSelector == @selector(tableView:estimatedHeightForHeaderInSection:)) {
-		return useEstimatedHeaderHeights;
+		return self.useEstimatedHeaderHeights;
 	}
 	if (aSelector == @selector(tableView:estimatedHeightForFooterInSection:)) {
-		return useEstimatedFooterHeights;
+		return self.useEstimatedFooterHeights;
 	}
 	if (aSelector == @selector(tableView:viewForHeaderInSection:)) {
-		return useHeaderViews;
+		return self.useHeaderViews;
 	}
 	if (aSelector == @selector(tableView:viewForFooterInSection:)) {
-		return useFooterViews;
+		return self.useFooterViews;
 	}
 	if (aSelector == @selector(tableView:heightForHeaderInSection:)) {
-		return useHeaderHeights;
+		return self.useHeaderHeights;
 	}
 	if (aSelector == @selector(tableView:heightForFooterInSection:)) {
-		return useFooterHeights;
+		return self.useFooterHeights;
 	}
 	if (aSelector == @selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)) {
-		return hasTitlesForDeleteConfirmationButtons;
+		return self.hasTitlesForDeleteConfirmationButtons;
 	}
 	if (aSelector == @selector(tableView:editActionsForRowAtIndexPath:)) {
-		return useEditActions;
+		return self.useEditActions;
 	}
 	if (aSelector == @selector(tableView:shouldHighlightRowAtIndexPath:)) {
-		return useHighlights;
+		return self.useHighlights;
 	}
 	if (aSelector == @selector(tableView:shouldIndentWhileEditingRowAtIndexPath:)) {
-		return useIndents;
+		return self.useIndents;
 	}
 	if (aSelector == @selector(tableView:canEditRowAtIndexPath:)) {
-		return useEditRows;
+		return self.useEditRows;
 	}
 	if (aSelector == @selector(tableView:canMoveRowAtIndexPath:)) {
-		return useMoveRows;
+		return self.useMoveRows;
 	}
 	if (aSelector == @selector(tableView:commitEditingStyle:forRowAtIndexPath:)) {
-		return useEditRows;
+		return self.useEditingStyles;
 	}
 	if (aSelector == @selector(tableView:moveRowAtIndexPath:toIndexPath:)) {
-		return useMoveRows;
+		return self.useMoveRows;
 	}
 	if (aSelector == @selector(tableView:shouldShowMenuForRowAtIndexPath:)) {
-		return useMenus;
+		return self.useMenus;
 	}
 	if (aSelector == @selector(tableView:editingStyleForRowAtIndexPath:)) {
-		return useEditingStyles;
+		return self.useEditingStyles;
 	}
 	if (aSelector == @selector(tableView:indentationLevelForRowAtIndexPath:)) {
-		return useIndentationLevels;
+		return self.useIndentationLevels;
 	}
 	return [super respondsToSelector:aSelector];
 }
