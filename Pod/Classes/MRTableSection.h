@@ -35,5 +35,7 @@
 - (void)removeRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation;
 - (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow;
 - (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow withAnimation:(UITableViewRowAnimation)animation;
+- (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow;
+- (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow withAnimation:(UITableViewRowAnimation)animation;
 
 @end

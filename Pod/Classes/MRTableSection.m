@@ -109,6 +109,23 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	[self.tableBuilder.tableView endUpdates];
 }
 
+- (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow
+{
+	row.section = self;
+	NSUInteger index = [self.rows indexOfObject:beforeRow];
+	[self.rows insertObject:row atIndex:index];
+}
+
+- (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow withAnimation:(UITableViewRowAnimation)animation
+{
+	[self.tableBuilder registerRow:row];
+	[self.tableBuilder.tableView beginUpdates];
+	[self insertRow:row beforeRow:beforeRow];
+	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
+	[self.tableBuilder.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+	[self.tableBuilder.tableView endUpdates];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
