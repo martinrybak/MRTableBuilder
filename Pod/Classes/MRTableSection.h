@@ -37,5 +37,7 @@
 - (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow withAnimation:(UITableViewRowAnimation)animation;
 - (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow;
 - (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow withAnimation:(UITableViewRowAnimation)animation;
+- (void)insertRow:(MRTableRow*)row atIndex:(NSUInteger)index;
+- (void)insertRow:(MRTableRow*)row atIndex:(NSUInteger)index withAnimation:(UITableViewRowAnimation)animation;
 
 @end

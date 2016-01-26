@@ -94,33 +94,39 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow
 {
-	row.section = self;
 	NSUInteger index = [self.rows indexOfObject:afterRow];
-	[self.rows insertObject:row atIndex:index + 1];
+	[self insertRow:row atIndex:index + 1];
 }
 
 - (void)insertRow:(MRTableRow*)row afterRow:(MRTableRow*)afterRow withAnimation:(UITableViewRowAnimation)animation
 {
-	[self.tableBuilder registerRow:row];
-	[self.tableBuilder.tableView beginUpdates];
-	[self insertRow:row afterRow:afterRow];
-	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
-	[self.tableBuilder.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
-	[self.tableBuilder.tableView endUpdates];
+	NSUInteger index = [self.rows indexOfObject:afterRow];
+	[self insertRow:row atIndex:index + 1 withAnimation:animation];
 }
 
 - (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow
 {
-	row.section = self;
 	NSUInteger index = [self.rows indexOfObject:beforeRow];
 	[self.rows insertObject:row atIndex:index];
 }
 
 - (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow withAnimation:(UITableViewRowAnimation)animation
 {
+	NSUInteger index = [self.rows indexOfObject:beforeRow];
+	[self insertRow:row atIndex:index withAnimation:animation];
+}
+
+- (void)insertRow:(MRTableRow*)row atIndex:(NSUInteger)index
+{
+	row.section = self;
+	[self.rows insertObject:row atIndex:index];
+}
+
+- (void)insertRow:(MRTableRow*)row atIndex:(NSUInteger)index withAnimation:(UITableViewRowAnimation)animation
+{
 	[self.tableBuilder registerRow:row];
 	[self.tableBuilder.tableView beginUpdates];
-	[self insertRow:row beforeRow:beforeRow];
+	[self insertRow:row atIndex:index];
 	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
 	[self.tableBuilder.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
 	[self.tableBuilder.tableView endUpdates];
