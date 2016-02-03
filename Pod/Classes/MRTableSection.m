@@ -181,13 +181,17 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		self.deletedIndexPath = indexPath;
-		if (row.onCommitDelete) {
-			row.onCommitDelete();
-		}
+		[CATransaction begin];
+		[CATransaction setCompletionBlock:^{
+			if (row.onCommitDelete) {
+				row.onCommitDelete();
+			}
+		}];
 		[tableView beginUpdates];
 		[self.rows removeObject:row];
 		[tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 		[tableView endUpdates];
+		[CATransaction commit];
 	}
 	if (editingStyle == UITableViewCellEditingStyleInsert) {
 		if (row.onCommitInsert) {
