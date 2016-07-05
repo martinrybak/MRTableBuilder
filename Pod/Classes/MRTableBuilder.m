@@ -260,6 +260,19 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	return nil;
 }
 
+- (BOOL)isSectionVisible:(MRTableSection*)section
+{
+	CGRect visibleRect = CGRectMake(self.tableView.contentOffset.x, self.tableView.contentOffset.y, self.tableView.bounds.size.width, self.tableView.bounds.size.height);
+	CGRect sectionRect = [self.tableView rectForSection:section];
+	return CGRectIntersectsRect(visibleRect, sectionRect);
+}
+
+- (BOOL)isRowVisible:(MRTableRow*)row
+{
+	NSIndexPath* indexPath = [self indexPathForRow:row];
+	return [[self.tableView indexPathsForVisibleRows] containsObject:indexPath];
+}
+
 - (void)reloadRow:(MRTableRow*)row
 {
 	[self reloadRow:row withAnimation:UITableViewRowAnimationAutomatic];
