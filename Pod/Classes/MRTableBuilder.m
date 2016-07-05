@@ -144,14 +144,101 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 
 - (void)addSection:(MRTableSection*)section
 {
+	NSInteger index = self.sections.count;
+	[self insertSection:section atIndex:index];
+}
+
+- (void)addSection:(MRTableSection*)section withAnimation:(UITableViewRowAnimation)animation
+{
+	NSInteger index = self.sections.count;
+	[self insertSection:section atIndex:index withAnimation:animation];
+}
+
+- (void)insertSection:(MRTableSection*)section atIndex:(NSUInteger)index
+{
 	section.tableBuilder = self;
-	[self.sections addObject:section];
+	[self registerSection:section];
+	[self.sections insertObject:section atIndex:index];
+}
+
+- (void)insertSection:(MRTableSection*)section aboveSection:(MRTableSection*)aboveSection
+{
+	NSInteger index = [self.sections indexOfObject:aboveSection];
+	[self insertSection:section atIndex:index];
+}
+
+- (void)insertSection:(MRTableSection*)section belowSection:(MRTableSection*)belowSection
+{
+	NSInteger index = [self.sections indexOfObject:belowSection] + 1;
+	[self insertSection:section atIndex:index];
+}
+
+- (void)insertSections:(NSArray*)sections belowSection:(MRTableSection*)belowSection
+{
+	MRTableSection* topSection = belowSection;
+	for (MRTableSection* section in sections) {
+		[self insertSection:section belowSection:topSection];
+		topSection = section;
+	};
+}
+
+- (void)insertSections:(NSArray*)sections aboveSection:(MRTableSection*)aboveSection
+{
+	for (MRTableSection* section in sections) {
+		[self insertSection:section aboveSection:aboveSection];
+	};
+}
+
+- (void)insertSection:(MRTableSection*)section atIndex:(NSUInteger)index withAnimation:(UITableViewRowAnimation)animation
+{
+	[self insertSection:section atIndex:index];
+	[self.tableView beginUpdates];
+	NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
+	[self.tableView insertSections:indexSet withRowAnimation:animation];
+	[self.tableView endUpdates];
+}
+
+- (void)insertSection:(MRTableSection*)section aboveSection:(MRTableSection*)aboveSection withAnimation:(UITableViewRowAnimation)animation
+{
+	NSInteger index = [self.sections indexOfObject:aboveSection];
+	[self insertSection:section atIndex:index withAnimation:animation];
+}
+
+- (void)insertSection:(MRTableSection*)section belowSection:(MRTableSection*)belowSection withAnimation:(UITableViewRowAnimation)animation
+{
+	NSInteger index = [self.sections indexOfObject:belowSection] + 1;
+	[self insertSection:section atIndex:index withAnimation:animation];
+}
+
+- (void)insertSections:(NSArray*)sections belowSection:(MRTableSection*)belowSection withAnimation:(UITableViewRowAnimation)animation
+{
+	[self insertSections:sections belowSection:belowSection];
+	[self.tableView beginUpdates];
+	[self.tableView insertSections:[self indexSetForSections:sections] withRowAnimation:animation];
+	[self.tableView endUpdates];
+}
+
+- (void)insertSections:(NSArray*)sections aboveSection:(MRTableSection*)aboveSection withAnimation:(UITableViewRowAnimation)animation
+{
+	[self insertSections:sections aboveSection:aboveSection];
+	[self.tableView beginUpdates];
+	[self.tableView insertSections:[self indexSetForSections:sections] withRowAnimation:animation];
+	[self.tableView endUpdates];
 }
 
 - (void)removeSection:(MRTableSection*)section
 {
-	section.tableBuilder = nil;
 	[self.sections removeObject:section];
+}
+
+- (void)removeSection:(MRTableSection*)section withAnimation:(UITableViewRowAnimation)animation
+{
+	[self.sections removeObject:section];
+	[self.tableView beginUpdates];
+	NSUInteger index = [self.sections indexOfObject:section];
+	NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
+	[self.tableView deleteSections:indexSet withRowAnimation:animation];
+	[self.tableView endUpdates];
 }
 
 - (void)clear
@@ -247,6 +334,9 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 		} else {
 			[self.tableView registerClass:section.footer.viewClass forHeaderFooterViewReuseIdentifier:section.footer.reuseIdentifier];
 		}
+	}
+	for (MRTableRow* row in section.rows) {
+		[self registerRow:row];
 	}
 }
 
@@ -592,6 +682,15 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 			}
 		}
 	}
+}
+
+- (NSIndexSet*)indexSetForSections:(NSArray*)sections
+{
+	NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
+	[sections enumerateObjectsUsingBlock:^(id section, NSUInteger index, BOOL* stop) {
+		[indexSet addIndex:[self.sections indexOfObject:section]];
+	}];
+	return [indexSet copy];
 }
 
 @end
