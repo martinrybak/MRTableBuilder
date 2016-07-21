@@ -27,6 +27,8 @@
 @property (copy, nonatomic) void(^onDidEndDisplayingFooter)(id view);
 
 - (instancetype)init;
+- (MRTableRow*)rowAtIndex:(NSUInteger)index;
+- (MRTableRow*)rowAtIndexPath:(NSIndexPath*)indexPath;
 - (void)addRow:(MRTableRow*)row;
 - (void)addRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation;
 - (void)addRows:(NSArray*)rows;

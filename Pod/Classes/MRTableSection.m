@@ -43,6 +43,20 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	footer.section = self;
 }
 
+- (MRTableRow*)rowAtIndex:(NSUInteger)index;
+{
+	//Safety check
+	if (index < self.rows.count) {
+		return self.rows[index];
+	}
+	return nil;
+}
+
+- (MRTableRow*)rowAtIndexPath:(NSIndexPath*)indexPath
+{
+	return [self rowAtIndex:indexPath.row];
+}
+
 - (void)addRow:(MRTableRow*)row
 {
 	row.section = self;
@@ -141,7 +155,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	return [row buildCellWithIndexPath:indexPath];
 }
 
@@ -158,7 +172,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 //Returns YES by default
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.canEdit) {
 		return row.canEdit.boolValue;
 	}
@@ -168,7 +182,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 //Returns NO by default
 - (BOOL)tableView:(UITableView*)tableView canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.canMove) {
 		return row.canMove.boolValue;
 	}
@@ -177,7 +191,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		self.deletedIndexPath = indexPath;
@@ -206,7 +220,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onWillDisplay) {
 		row.onWillDisplay(cell);
 	}
@@ -233,7 +247,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 		return;
 	}
 	
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onDidEndDisplaying) {
 		row.onDidEndDisplaying(cell);
 	}
@@ -257,7 +271,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	
 	//If the row has an explicit height set, return it
 	if (row.height) {
@@ -328,7 +342,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 // If these methods are implemented, the above -tableView:heightForXXX calls will be deferred until views are ready to be displayed, so more expensive logic can be placed there.
 - (CGFloat)tableView:(UITableView*)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	
 	//Check if the row has an explicit height
 	if (row.height) {
@@ -386,7 +400,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onAccessoryButtonTapped) {
 		row.onAccessoryButtonTapped();
 	}
@@ -397,7 +411,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 //Returns YES by default
 - (BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.shouldHighlight) {
 		return row.shouldHighlight.boolValue;
 	}
@@ -406,7 +420,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView didHighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onDidHighlight) {
 		row.onDidHighlight();
 	}
@@ -414,7 +428,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView didUnhighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onDidUnhighlight) {
 		row.onDidUnhighlight();
 	}
@@ -422,7 +436,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (NSIndexPath*)tableView:(UITableView*)tableView willSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onWillSelect) {
 		return row.onWillSelect(indexPath);
 	}
@@ -431,7 +445,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (NSIndexPath*)tableView:(UITableView*)tableView willDeselectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onWillDeselect) {
 		return row.onWillDeselect(indexPath);
 	}
@@ -440,7 +454,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onDidSelect) {
 		row.onDidSelect(indexPath);
 	}
@@ -448,7 +462,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onDidDeselect) {
 		row.onDidDeselect(indexPath);
 	}
@@ -459,7 +473,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 // Allows customization of the editingStyle for a particular cell located at 'indexPath'. If not implemented, all editable cells will have UITableViewCellEditingStyleDelete set for them when the table has editing property set to YES.
 - (UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.editingStyle) {
 		return row.editingStyle.integerValue;
 	}
@@ -468,21 +482,21 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (NSString*)tableView:(UITableView*)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	return row.titleForDeleteConfirmationButton;
 }
 
 // supercedes -tableView:titleForDeleteConfirmationButtonForRowAtIndexPath: if return value is non-nil
 - (NSArray*)tableView:(UITableView*)tableView editActionsForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	return row.editActions;
 }
 
 // Controls whether the background is indented while editing.  If not implemented, the default is YES.  This is unrelated to the indentation level below.  This method only applies to grouped style table views.
 - (BOOL)tableView:(UITableView*)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.shouldIndentWhileEditing) {
 		return row.shouldIndentWhileEditing.boolValue;
 	}
@@ -492,7 +506,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 // The willBegin/didEnd methods are called whenever the 'editing' property is automatically changed by the table (allowing insert/delete/move). This is done by a swipe activating a single row
 - (void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onWillBeginEditing) {
 		row.onWillBeginEditing();
 	}
@@ -513,7 +527,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 	}
 	
 	//This is a commitEditingStyle of type UITableViewCellEditingStyleInsert
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onDidEndEditing) {
 		row.onDidEndEditing();
 	}
@@ -524,7 +538,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 // return 'depth' of row for hierarchies
 - (NSInteger)tableView:(UITableView*)tableView indentationLevelForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.indentationLevel) {
 		return row.indentationLevel.integerValue;
 	}
@@ -536,7 +550,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 //Default is NO
 - (BOOL)tableView:(UITableView*)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.shouldShowMenu) {
 		return row.shouldShowMenu.boolValue;
 	}
@@ -545,7 +559,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.canPerformAction) {
 		return row.canPerformAction(action, sender);
 	}
@@ -554,7 +568,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender
 {
-	MRTableRow* row = self.rows[indexPath.row];
+	MRTableRow* row = [self rowAtIndexPath:indexPath];
 	if (row.onPerformAction) {
 		row.onPerformAction(action, sender);
 	}
