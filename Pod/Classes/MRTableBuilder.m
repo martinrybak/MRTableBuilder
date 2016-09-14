@@ -205,8 +205,8 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 
 - (void)insertSection:(MRTableSection*)section atIndex:(NSUInteger)index withAnimation:(UITableViewRowAnimation)animation
 {
-	[self insertSection:section atIndex:index];
 	[self.tableView beginUpdates];
+	[self insertSection:section atIndex:index];
 	NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
 	[self.tableView insertSections:indexSet withRowAnimation:animation];
 	[self.tableView endUpdates];
@@ -226,16 +226,16 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 
 - (void)insertSections:(NSArray*)sections belowSection:(MRTableSection*)belowSection withAnimation:(UITableViewRowAnimation)animation
 {
-	[self insertSections:sections belowSection:belowSection];
 	[self.tableView beginUpdates];
+	[self insertSections:sections belowSection:belowSection];
 	[self.tableView insertSections:[self indexSetForSections:sections] withRowAnimation:animation];
 	[self.tableView endUpdates];
 }
 
 - (void)insertSections:(NSArray*)sections aboveSection:(MRTableSection*)aboveSection withAnimation:(UITableViewRowAnimation)animation
 {
-	[self insertSections:sections aboveSection:aboveSection];
 	[self.tableView beginUpdates];
+	[self insertSections:sections aboveSection:aboveSection];
 	[self.tableView insertSections:[self indexSetForSections:sections] withRowAnimation:animation];
 	[self.tableView endUpdates];
 }
@@ -247,8 +247,8 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 
 - (void)removeSection:(MRTableSection*)section withAnimation:(UITableViewRowAnimation)animation
 {
-	[self.sections removeObject:section];
 	[self.tableView beginUpdates];
+	[self.sections removeObject:section];
 	NSUInteger index = [self.sections indexOfObject:section];
 	NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
 	[self.tableView deleteSections:indexSet withRowAnimation:animation];
