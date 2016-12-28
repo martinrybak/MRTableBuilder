@@ -30,6 +30,11 @@
 	return self;
 }
 
+- (instancetype)initWithClass:(Class)class
+{
+	return [self initWithClass:class reuseIdentifier:[class description]];
+}
+
 - (instancetype)initWithReuseIdentifier:(NSString*)reuseIdentifier
 {
 	if (self = [super init]) {

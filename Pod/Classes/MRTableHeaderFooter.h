@@ -21,6 +21,7 @@
 @property (copy, nonatomic) void(^onConfigure)(id);
 - (instancetype)initWithNib:(UINib*)nib reuseIdentifier:(NSString*)reuseIdentifier;
 - (instancetype)initWithClass:(Class)class reuseIdentifier:(NSString*)reuseIdentifier;
+- (instancetype)initWithClass:(Class)class;
 - (instancetype)initWithReuseIdentifier:(NSString*)reuseIdentifier;
 - (instancetype)init;
 - (UITableViewHeaderFooterView*)buildView;
