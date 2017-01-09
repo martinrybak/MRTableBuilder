@@ -36,8 +36,8 @@ extern CGFloat const MRTableBuilderDefaultRowHeight;
 
 - (instancetype)init;
 - (void)bindToTableView:(UITableView*)tableView;
-- (MRTableRow*)sectionAtIndex:(NSUInteger)index;
-- (MRTableRow*)sectionAtIndexPath:(NSIndexPath*)indexPath;
+- (MRTableSection*)sectionAtIndex:(NSUInteger)index;
+- (MRTableSection*)sectionAtIndexPath:(NSIndexPath*)indexPath;
 - (void)addSection:(MRTableSection*)section;
 - (void)addSection:(MRTableSection*)section withAnimation:(UITableViewRowAnimation)animation;
 - (void)insertSection:(MRTableSection*)section atIndex:(NSUInteger)index;

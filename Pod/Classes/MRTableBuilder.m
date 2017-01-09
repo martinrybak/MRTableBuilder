@@ -142,7 +142,7 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	[tableView reloadData];
 }
 
-- (MRTableRow*)sectionAtIndex:(NSUInteger)index
+- (MRTableSection*)sectionAtIndex:(NSUInteger)index
 {
 	//Safety check
 	if (index < self.sections.count) {
@@ -151,7 +151,7 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	return nil;
 }
 
-- (MRTableRow*)sectionAtIndexPath:(NSIndexPath*)indexPath
+- (MRTableSection*)sectionAtIndexPath:(NSIndexPath*)indexPath
 {
 	return [self sectionAtIndex:indexPath.section];
 }
