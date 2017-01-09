@@ -1,0 +1,24 @@
+{
+  "name": "MRTableBuilder",
+  "version": "0.1.0",
+  "summary": "A declarative, block-based helper class to configure UITableViews.",
+  "homepage": "https://github.com/martinrybak/MRTableBuilder",
+  "license": "MIT",
+  "authors": {
+    "Martin Rybak": "martin.rybak@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/martinrybak/MRTableBuilder.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "MRTableBuilder": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}

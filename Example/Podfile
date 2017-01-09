@@ -1,11 +1,7 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
-target 'MRTableBuilder', :exclusive => true do
+target 'MRTableBuilder' do
   pod "MRTableBuilder", :path => "../"
 end
 
-target 'Tests', :exclusive => true do
+target 'Tests' do
   pod "MRTableBuilder", :path => "../"
-
-  
 end
