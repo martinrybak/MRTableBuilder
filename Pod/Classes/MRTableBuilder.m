@@ -156,6 +156,35 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	return [self sectionAtIndex:indexPath.section];
 }
 
+- (void)reloadSection:(MRTableSection*)section
+{
+	[self reloadSection:section withAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)reloadSection:(MRTableSection*)section withAnimation:(UITableViewRowAnimation)animation
+{
+	[self registerSection:section];
+	NSUInteger index = [self.sections indexOfObject:section];
+	NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
+	[self.tableView reloadSections:indexSet withRowAnimation:animation];
+}
+
+- (void)reloadSections:(NSArray*)sections
+{
+	[self reloadSections:sections withAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)reloadSections:(NSArray*)sections withAnimation:(UITableViewRowAnimation)animation
+{
+	NSMutableIndexSet* indexSet = [NSMutableIndexSet indexSet];
+	for (MRTableSection* section in sections) {
+		[self registerSection:section];
+		NSUInteger index = [self.sections indexOfObject:section];
+		[indexSet addIndex:index];
+	}
+	[self.tableView reloadSections:indexSet withRowAnimation:animation];
+}
+
 - (void)addSection:(MRTableSection*)section
 {
 	NSInteger index = self.sections.count;
