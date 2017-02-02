@@ -59,13 +59,12 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 
 - (void)addRow:(MRTableRow*)row
 {
-	row.section = self;
-	[self.rows addObject:row];
+	NSUInteger index = self.rows.count;
+	[self insertRow:row atIndex:index];
 }
 
 - (void)addRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation
 {
-	[self.tableBuilder registerRow:row];
 	[self.tableBuilder.tableView beginUpdates];
 	[self addRow:row];
 	NSIndexPath* indexPath = [self.tableBuilder indexPathForRow:row];
@@ -121,7 +120,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 - (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow
 {
 	NSUInteger index = [self.rows indexOfObject:beforeRow];
-	[self.rows insertObject:row atIndex:index];
+	[self insertRow:row atIndex:index];
 }
 
 - (void)insertRow:(MRTableRow*)row beforeRow:(MRTableRow*)beforeRow withAnimation:(UITableViewRowAnimation)animation
@@ -133,6 +132,7 @@ CGFloat const MRTableSectionDefaultCellSeparatorHeight = 1.0;
 - (void)insertRow:(MRTableRow*)row atIndex:(NSUInteger)index
 {
 	row.section = self;
+	[self.tableBuilder registerRow:row];
 	[self.rows insertObject:row atIndex:index];
 }
 
