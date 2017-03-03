@@ -65,6 +65,8 @@ extern CGFloat const MRTableBuilderDefaultRowHeight;
 - (void)reloadRow:(MRTableRow*)row withAnimation:(UITableViewRowAnimation)animation;
 - (void)reloadRows:(NSArray*)rows;
 - (void)reloadRows:(NSArray*)rows withAnimation:(UITableViewRowAnimation)animation;
+- (void)scrollToRow:(MRTableRow*)row;
+- (void)scrollToRow:(MRTableRow*)row atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 - (void)registerRow:(MRTableRow*)row;
 - (void)registerSection:(MRTableSection*)section;
 

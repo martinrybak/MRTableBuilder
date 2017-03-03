@@ -346,6 +346,17 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	[self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
+- (void)scrollToRow:(MRTableRow*)row
+{
+	[self scrollToRow:row atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
+- (void)scrollToRow:(MRTableRow*)row atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated
+{
+	NSIndexPath* indexPath = [self indexPathForRow:row];
+	[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+}
+
 - (id)cellForRow:(MRTableRow*)row
 {
 	if (!row) {
