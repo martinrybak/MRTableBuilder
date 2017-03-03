@@ -354,7 +354,7 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 - (void)scrollToRow:(MRTableRow*)row atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated
 {
 	NSIndexPath* indexPath = [self indexPathForRow:row];
-	[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+	[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
 }
 
 - (id)cellForRow:(MRTableRow*)row
