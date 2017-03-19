@@ -277,8 +277,8 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 - (void)removeSection:(MRTableSection*)section withAnimation:(UITableViewRowAnimation)animation
 {
 	[self.tableView beginUpdates];
-	[self.sections removeObject:section];
 	NSUInteger index = [self.sections indexOfObject:section];
+	[self.sections removeObject:section];
 	NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
 	[self.tableView deleteSections:indexSet withRowAnimation:animation];
 	[self.tableView endUpdates];
