@@ -305,8 +305,9 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 
 - (BOOL)isSectionVisible:(MRTableSection*)section
 {
+	NSInteger index = [self.sections indexOfObject:section];
 	CGRect visibleRect = CGRectMake(self.tableView.contentOffset.x, self.tableView.contentOffset.y, self.tableView.bounds.size.width, self.tableView.bounds.size.height);
-	CGRect sectionRect = [self.tableView rectForSection:section];
+	CGRect sectionRect = [self.tableView rectForSection:index];
 	return CGRectIntersectsRect(visibleRect, sectionRect);
 }
 
