@@ -479,11 +479,8 @@ CGFloat const MRTableBuilderDefaultRowHeight = 44.0;
 	MRTableSection* sourceSection = [self sectionAtIndexPath:sourceIndexPath];
 	MRTableSection* destinationSection = [self sectionAtIndexPath:destinationIndexPath];
 	MRTableRow* row = [sourceSection rowAtIndexPath:sourceIndexPath];
-	
-	[tableView beginUpdates];
 	[sourceSection.rows removeObject:row];
 	[destinationSection.rows insertObject:row atIndex:destinationIndexPath.row];
-	[tableView endUpdates];
 }
 
 #pragma mark - UITableViewDelegate
